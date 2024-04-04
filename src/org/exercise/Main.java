@@ -1,18 +1,30 @@
 package org.exercise;
 
 public class Main {
+
+    public static void faiVolare(Volante animale) {
+        animale.vola();
+    }
+
+    public static void faiNuotare(Nuotante animale) {
+        animale.nuota();
+    }
+
     public static void main(String[] args) {
-        Dog dog = new Dog("dog food");
-        Dolphin dolphin = new Dolphin("fish");
-        Eagle eagle = new Eagle("meet");
-        Sparrow sparrow = new Sparrow("birdseed");
+        Cane dog = new Cane();
+        Delfino dolphin = new Delfino();
+        Aquila eagle = new Aquila();
+        Passerotto sparrow = new Passerotto();
 
-        Animal[] animals = {dog, dolphin, eagle, sparrow};
+        Animale[] animals = {dog, dolphin, eagle, sparrow};
 
-        for (Animal a: animals){
-            a.makeNoise();
-            a.sleep();
-            a.eats();
+        for (Animale a: animals){
+            a.verso();
+            a.dormi();
+            a.mangia();
+            if (a instanceof Volante) faiVolare((Volante) a);
+            if (a instanceof Nuotante) faiNuotare((Nuotante) a);
+            System.out.println();
         }
     }
 }
